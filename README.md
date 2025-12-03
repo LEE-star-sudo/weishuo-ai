@@ -33,6 +33,9 @@
 
 ## ✨ 功能特性
 
+### 🌟 技术亮点
+*   **云端数据库集成**：采用 Google Cloud SQL (MySQL 8) 作为生产环境数据库，实现数据的云端持久化存储，保障数据安全性和高可用性。
+
 ### 1. 用户系统
 *   **注册与登录**：支持邮箱/用户名注册，密码加密存储，保障账户安全。
 *   **个人资料**：用户拥有独立的个人中心，展示头像、昵称及简介。
@@ -55,7 +58,7 @@
 ### 后端 (Backend)
 *   **语言**：Java 17
 *   **框架**：Spring Boot 3.3.2
-*   **数据库**：H2 Database (内存数据库，开发便捷) / MySQL (生产支持)
+*   **数据库**：Google Cloud SQL (MySQL 8) - 云端持久化存储 ☁️
 *   **ORM**：Spring Data JPA
 *   **工具**：Lombok, Maven
 
@@ -75,8 +78,9 @@
 graph TD
     User[用户浏览器] -->|HTTP/JSON| Frontend[前端 (HTML/JS)]
     Frontend -->|Fetch API| Backend[后端 (Spring Boot)]
-    Backend -->|JPA| DB[(H2 / MySQL)]
+    Backend -->|JPA| CloudDB[☁️ Google Cloud SQL]
     Backend -->|REST| ExternalAPI[Mediastack API]
+    CloudDB -->|数据持久化| Storage[(MySQL 8)]
 ```
 
 ---
@@ -147,10 +151,10 @@ Weishuo-Project
 
 ## 📅 未来规划
 
-1.  **持久化存储**：将数据库迁移至 MySQL，确保数据持久保存。
-2.  **安全增强**：引入 Spring Security 和 JWT Token 机制，实现更安全的无状态认证。
-3.  **评论功能**：开发完整的评论系统，支持用户对新闻发表观点。
-4.  **内容发布**：完善发布器功能，允许用户撰写并发布原创图文微博。
+1.  **安全增强**：引入 Spring Security 和 JWT Token 机制，实现更安全的无状态认证。
+2.  **评论功能**：开发完整的评论系统，支持用户对新闻发表观点。
+3.  **内容发布**：完善发布器功能，允许用户撰写并发布原创图文微博。
+4.  **数据分析**：集成 Google Cloud Analytics，实现用户行为分析与可视化。
 
 ---
 
