@@ -38,8 +38,6 @@ spring:
   config:
     activate:
       on-profile: mysql
-server:
-  port: 8081
   datasource:
     url: jdbc:mysql://localhost:3306/weishuo?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
     username: root
@@ -48,3 +46,6 @@ server:
   jpa:
     hibernate:
       ddl-auto: update
+
+server:
+  port: 8081
